@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola amor</title>
+    <link rel="stylesheet" href="style.CSS">
+</head>
+<body>
+    <img src="https://i.pinimg.com/originals/b4/2d/83/b42d8352da7621e9ca1abe83bc3fb4a2.jpg" alt="">
+    <div id="login" style="text-align:center; margin-top:200px;">
+    <button id="pistasBtn" style="margin-bottom: 20px; background-color: #08080891; color: #ffffffaf; border: none; padding: 8px 16px; border-radius: 8px; font-size: 16px; cursor: pointer;">si necesitas una pista toca este boton amorcito </button> 
+    <div id="pistas" style="display:none; margin-bottom: 20px; color: #fff; background: rgba(255,105,180,0.2); border-radius: 10px; padding: 10px 20px; font-size: 16px;"></div>
+    <h1>Ingresa la contraseña para ver tu carta mi amorcito preciosa💌</h1>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <input type="password" id="password" placeholder="Pon la contraseña mi amor" style="margin-bottom:0;" />
+            <button id="togglePassword" type="button" style="background: #ffb6c1; color: #000; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer; font-size: 16px;">👀</button>
+        </div>
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="error" style="color:rgb(255, 255, 255);"></p>
+    </div>
+    <div id="carta" style="display:none; text-align:center; margin-top:100px;">
+                <div class="carta-fondo">
+                        <h1>Para mi amor ❤️</h1>
+                        <p>¿Y si solo tenemos una vida? Entonces quiero vivirla siempre a tu lado. ¿Y si existe la reencarnación? Te buscaría en cada vida para encontrarte y disfrutar de otra vida juntos. ¿Y si mañana se acaba el mundo? Agradecería cada momento contigo, porque en nuestros recuerdos siempre viviremos. ¿Y si me muero mañana? Haría todo lo posible por recordarte los mejores momentos que compartimos, recreando cada instante en que fuimos uno solo. ¿Y si encuentras a alguien-más? En esta vida ya he recibido el mejor regalo; tú, que llegaste a darle color a mi mundo sin razón aparente, y eso es irremplazable. ¿Qué serías capaz de hacer por mí? Sé que soy solo una persona común, pero daría todo por verte feliz. No puedo bajarte la luna, pero haría que tus días sean especiales.
+¿Por qué me elegiste a mí? Nunca te escogi; siempre supe que alguien llegaría a mi vida. Solo confié en mi corazón y dejé que el destino nos uniera. ¿Que si te amo? Eres el motor que me impulsa a ser mejor, has hecho que vuelva a creer en el amor y que esta palabra signifique mucho más que una ll simple expresión. Eres quien siempre soñé tener a mi lado, y ahora que estás aquí, te cuidaré y haré de mi corazón tu lugar seguro.</p>
+                        
+                </div>
+    </div>
+    <script>
+        // Mostrar/ocultar contraseña
+        document.getElementById('togglePassword').onclick = function() {
+            var input = document.getElementById('password');
+            if (input.type === 'password') {
+                input.type = 'text';
+                this.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                this.textContent = '👀';
+            }
+        }
+        function checkPassword() {
+            var pass = document.getElementById('password').value;
+            var error = document.getElementById('error');
+            if(pass === 'santaclaradefresa') { 
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('carta').style.display = 'block';
+            } else {
+                error.textContent = 'Contraseña incorrecta amorcito, intenta de nuevo 😘';
+            }
+        }
+        document.getElementById('password').addEventListener('keydown', function(e) {
+            if(e.key === 'Enter') checkPassword();
+        });
+
+        document.getElementById('pistasBtn').onclick = function() {
+            var pistas = [
+                '🍓 Es roja con blanco y dulce.',
+                '🐻 Es algo que te gusta muuuucho',
+                '💖 Es la razón por la cual llego a veces tarde',
+                
+            ];
+            document.getElementById('pistas').innerHTML = '<ul style="text-align:left;">' + pistas.map(p => '<li>' + p + '</li>').join('') + '</ul>';
+            document.getElementById('pistas').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
